@@ -8,9 +8,12 @@ dependencies:
   '@commitlint/config-conventional':
     specifier: ^17.6.5
     version: 17.6.5
+  '@nestjs/cache-manager':
+    specifier: ^1.0.0
+    version: 1.0.0(@nestjs/common@9.4.2)(cache-manager@5.2.2)(reflect-metadata@0.1.13)(rxjs@7.8.1)
   '@nestjs/common':
     specifier: ^9.4.2
-    version: 9.4.2(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+    version: 9.4.2(cache-manager@5.2.2)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
   '@nestjs/core':
     specifier: ^9.4.2
     version: 9.4.2(@nestjs/common@9.4.2)(@nestjs/platform-express@9.4.2)(reflect-metadata@0.1.13)(rxjs@7.8.1)
@@ -20,6 +23,9 @@ dependencies:
   axios:
     specifier: ^1.4.0
     version: 1.4.0
+  cache-manager:
+    specifier: ^5.2.2
+    version: 5.2.2
   class-validator:
     specifier: ^0.14.0
     version: 0.14.0
@@ -32,6 +38,9 @@ dependencies:
   eslint-plugin-storybook:
     specifier: ^0.6.12
     version: 0.6.12(eslint@8.15.0)(typescript@5.0.4)
+  express:
+    specifier: ^4.18.2
+    version: 4.18.2
   mysql2:
     specifier: ^3.3.3
     version: 3.3.3
@@ -93,7 +102,7 @@ devDependencies:
     version: 16.2.1(@types/node@18.16.14)(eslint@8.15.0)(nx@16.2.1)(ts-node@10.9.1)(typescript@5.0.4)
   '@nx/next':
     specifier: ^16.3.1
-    version: 16.3.1(@babel/core@7.21.8)(@types/node@18.16.14)(eslint@8.15.0)(next@13.4.4)(nx@16.2.1)(typescript@5.0.4)(webpack@5.83.1)
+    version: 16.3.1(@babel/core@7.21.8)(@types/express@4.17.17)(@types/node@18.16.14)(eslint@8.15.0)(next@13.4.4)(nx@16.2.1)(typescript@5.0.4)(webpack@5.83.1)
   '@nx/node':
     specifier: 16.2.1
     version: 16.2.1(@types/node@18.16.14)(eslint@8.15.0)(nx@16.2.1)(ts-node@10.9.1)(typescript@5.0.4)
@@ -109,6 +118,9 @@ devDependencies:
   '@testing-library/react':
     specifier: 14.0.0
     version: 14.0.0(react-dom@18.2.0)(react@18.2.0)
+  '@types/express':
+    specifier: ^4.17.17
+    version: 4.17.17
   '@types/jest':
     specifier: ^29.5.2
     version: 29.5.2
@@ -2088,7 +2100,21 @@ packages:
     resolution: {integrity: sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==}
     engines: {node: '>=8'}
 
-  /@nestjs/common@9.4.2(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1):
+  /@nestjs/cache-manager@1.0.0(@nestjs/common@9.4.2)(cache-manager@5.2.2)(reflect-metadata@0.1.13)(rxjs@7.8.1):
+    resolution: {integrity: sha512-XMNdgsj3H+Ng/SYwFl13vRGNFA3e5Obk8LNwIuHLVSocnK2exReAWtscxEjQhoBc4FW4jAYOgU/U+mt18Q9T0g==}
+    peerDependencies:
+      '@nestjs/common': ^9.0.0
+      cache-manager: <=5
+      reflect-metadata: ^0.1.12
+      rxjs: ^7.0.0
+    dependencies:
+      '@nestjs/common': 9.4.2(cache-manager@5.2.2)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      cache-manager: 5.2.2
+      reflect-metadata: 0.1.13
+      rxjs: 7.8.1
+    dev: false
+
+  /@nestjs/common@9.4.2(cache-manager@5.2.2)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1):
     resolution: {integrity: sha512-sea+qZnbD5x3YWZDVQT/wbVJ2NiABaM1tyZTLuW9hpkcM2KFA96xKtK3VaCxyz49zoXIgSOefsyK7HuUMCe27Q==}
     peerDependencies:
       cache-manager: <=5
@@ -2104,6 +2130,7 @@ packages:
       class-validator:
         optional: true
     dependencies:
+      cache-manager: 5.2.2
       class-validator: 0.14.0
       iterare: 1.2.1
       reflect-metadata: 0.1.13
@@ -2129,7 +2156,7 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 9.4.2(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      '@nestjs/common': 9.4.2(cache-manager@5.2.2)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/platform-express': 9.4.2(@nestjs/common@9.4.2)(@nestjs/core@9.4.2)
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
@@ -2148,7 +2175,7 @@ packages:
       '@nestjs/common': ^9.0.0
       '@nestjs/core': ^9.0.0
     dependencies:
-      '@nestjs/common': 9.4.2(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      '@nestjs/common': 9.4.2(cache-manager@5.2.2)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/core': 9.4.2(@nestjs/common@9.4.2)(@nestjs/platform-express@9.4.2)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       body-parser: 1.20.2
       cors: 2.8.5
@@ -2185,7 +2212,7 @@ packages:
       '@nestjs/platform-express':
         optional: true
     dependencies:
-      '@nestjs/common': 9.4.2(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+      '@nestjs/common': 9.4.2(cache-manager@5.2.2)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/core': 9.4.2(@nestjs/common@9.4.2)(@nestjs/platform-express@9.4.2)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/platform-express': 9.4.2(@nestjs/common@9.4.2)(@nestjs/core@9.4.2)
       tslib: 2.5.2
@@ -2443,10 +2470,10 @@ packages:
       - typescript
     dev: true
 
-  /@nrwl/next@16.3.1(@babel/core@7.21.8)(@types/node@18.16.14)(eslint@8.15.0)(next@13.4.4)(nx@16.2.1)(typescript@5.0.4)(webpack@5.83.1):
+  /@nrwl/next@16.3.1(@babel/core@7.21.8)(@types/express@4.17.17)(@types/node@18.16.14)(eslint@8.15.0)(next@13.4.4)(nx@16.2.1)(typescript@5.0.4)(webpack@5.83.1):
     resolution: {integrity: sha512-JPQ+eQxb9H7O9IX9j3WY6gGO2dkS9bmmfCLaO1WvpvT82rt/FqWcQMLUJj/01iujp094gHEPeZh9QZCUswK9xQ==}
     dependencies:
-      '@nx/next': 16.3.1(@babel/core@7.21.8)(@types/node@18.16.14)(eslint@8.15.0)(next@13.4.4)(nx@16.2.1)(typescript@5.0.4)(webpack@5.83.1)
+      '@nx/next': 16.3.1(@babel/core@7.21.8)(@types/express@4.17.17)(@types/node@18.16.14)(eslint@8.15.0)(next@13.4.4)(nx@16.2.1)(typescript@5.0.4)(webpack@5.83.1)
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/traverse'
@@ -2909,13 +2936,13 @@ packages:
       - typescript
     dev: true
 
-  /@nx/next@16.3.1(@babel/core@7.21.8)(@types/node@18.16.14)(eslint@8.15.0)(next@13.4.4)(nx@16.2.1)(typescript@5.0.4)(webpack@5.83.1):
+  /@nx/next@16.3.1(@babel/core@7.21.8)(@types/express@4.17.17)(@types/node@18.16.14)(eslint@8.15.0)(next@13.4.4)(nx@16.2.1)(typescript@5.0.4)(webpack@5.83.1):
     resolution: {integrity: sha512-Qw1RKgv9vLCKh96QQSa7D9xnR3XdjSwH+rcDaz8iENsiWkOLMr98l46vrNrE+9eupvERBZT07ca6cyNGCrcG3Q==}
     peerDependencies:
       next: '>=13.0.0'
     dependencies:
       '@babel/plugin-proposal-decorators': 7.21.0(@babel/core@7.21.8)
-      '@nrwl/next': 16.3.1(@babel/core@7.21.8)(@types/node@18.16.14)(eslint@8.15.0)(next@13.4.4)(nx@16.2.1)(typescript@5.0.4)(webpack@5.83.1)
+      '@nrwl/next': 16.3.1(@babel/core@7.21.8)(@types/express@4.17.17)(@types/node@18.16.14)(eslint@8.15.0)(next@13.4.4)(nx@16.2.1)(typescript@5.0.4)(webpack@5.83.1)
       '@nx/devkit': 16.3.1(nx@16.2.1)
       '@nx/js': 16.3.1(nx@16.2.1)(typescript@5.0.4)
       '@nx/linter': 16.3.1(eslint@8.15.0)(nx@16.2.1)(typescript@5.0.4)
@@ -5116,6 +5143,12 @@ packages:
   /bytes@3.1.2:
     resolution: {integrity: sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==}
     engines: {node: '>= 0.8'}
+
+  /cache-manager@5.2.2:
+    resolution: {integrity: sha512-QYEct/rVt5HfNvyWpHQurOa1IgpjP9V0X3E5O8rdEmuKcucpnMs7CwK0bHvv92svxZXlN2w5hgMFdrbiYoHeIQ==}
+    dependencies:
+      lodash.clonedeep: 4.5.0
+      lru-cache: 9.1.2
 
   /cachedir@2.3.0:
     resolution: {integrity: sha512-A+Fezp4zxnit6FanDmv9EqXNAi3vt9DWp51/71UEhXukb7QUuvtv9344h91dyAxuTLoSYJFU299qzR3tzwPAhw==}
@@ -8921,6 +8954,9 @@ packages:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: true
 
+  /lodash.clonedeep@4.5.0:
+    resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
+
   /lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
     dev: true
@@ -9025,6 +9061,10 @@ packages:
     resolution: {integrity: sha512-MhWWlVnuab1RG5/zMRRcVGXZLCXrZTgfwMikgzCegsPnG62yDQo5JnqKkrK4jO5iKqDAZGItAqN5CtKBCBWRUA==}
     engines: {node: '>=16.14'}
     dev: false
+
+  /lru-cache@9.1.2:
+    resolution: {integrity: sha512-ERJq3FOzJTxBbFjZ7iDs+NiK4VI9Wz+RdrrAB8dio1oV+YvdPzUEE4QNiT2VD51DkIbCYRUUzCRkssXCHqSnKQ==}
+    engines: {node: 14 || >=16.14}
 
   /lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}

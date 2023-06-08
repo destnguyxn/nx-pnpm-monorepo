@@ -1,12 +1,18 @@
-import { Module } from '@nestjs/common';
-
+import { BaseAppModule, LoggingInterceptor } from '@nx-pnpm-monorepo/common';
+import { Module, Provider } from '@nestjs/common';
+import { APP_INTERCEPTOR } from '@nestjs/core';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { ReadDatabaseModule, WriteDatabaseModule } from '@nx-pnpm-monorepo/common';
 
+const globalInterceptor: Provider[] = [
+  {
+    provide: APP_INTERCEPTOR,
+    useClass: LoggingInterceptor,
+  },
+];
 @Module({
-  imports: [ReadDatabaseModule, WriteDatabaseModule],
+  imports: [BaseAppModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, ...globalInterceptor],
 })
 export class AppModule {}

@@ -1,8 +1,8 @@
-import { Logger } from '@nestjs/common';
 import { IsBoolean, IsInt, IsString, validateSync } from 'class-validator';
+import { Logger } from '@nestjs/common';
 
 export class Configuration {
-  private readonly _logger = new Logger(Configuration.name);
+  readonly _logger = new Logger(Configuration.name);
 
   @IsBoolean()
   readonly DATABASE_READ_LOGGING = true;
@@ -46,7 +46,8 @@ export class Configuration {
   @IsBoolean()
   readonly DATABASE_WRITE_SYNC = true;
 
-  constructor() {
+  constructor(isExtends?: boolean) {
+    if (isExtends) return;
     const error = validateSync(this);
     if (!error.length) return;
     this._logger.error(`Config validation error: ${JSON.stringify(error)}`);

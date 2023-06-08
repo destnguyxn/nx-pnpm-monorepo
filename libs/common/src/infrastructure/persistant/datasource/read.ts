@@ -1,5 +1,5 @@
-import { Global, Module, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { DataSource, EntityTarget, ObjectLiteral, QueryRunner, Repository, SelectQueryBuilder } from 'typeorm';
+import { Global, Module, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { Configuration } from '../../config/env';
 
 const Config = new Configuration();

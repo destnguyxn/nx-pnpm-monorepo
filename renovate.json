@@ -15,11 +15,20 @@
     {
       "matchPackagePatterns": ["^eslint"],
       "groupName": "eslint and its plugins",
-      "groupSlug": "eslint"
+      "groupSlug": "eslint",
+      "enabled": false
     },
     {
       "matchPackageNames": ["node"],
       "enabled": false
+    },
+    {
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true,
+      "automergeType": "branch",
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch"
     },
     {
       "matchDepTypes": ["peerDependencies"],

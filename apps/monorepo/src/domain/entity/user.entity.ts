@@ -1,5 +1,5 @@
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 import { BaseEntity } from '@nx-pnpm-monorepo/common';
-import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity()
 export class UserEntity extends BaseEntity {
